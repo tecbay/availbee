@@ -17,7 +17,7 @@ Broadcast::channel( 'App.User.{id}', function ( $user, $id ) {
 
 Broadcast::channel( 'service_partner.{id}', function ( $user, $id ) {
 	// this channel for service provider
-	return response()->json( $user );
+	return false;
 
 	return (int) $user->id === (int) $id;
 } );
