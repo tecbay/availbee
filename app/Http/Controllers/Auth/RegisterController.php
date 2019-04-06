@@ -114,7 +114,6 @@ class RegisterController extends Controller {
 
 			// TODO : remove this logic in production , customer must verify there email for confirm service request
 			foreach ( $user->serviceRequests as $serviceRequests ) {
-				dd($serviceRequests);
 				$serviceRequests->update( [ 'confirmed' => true ] );
 				event( new ConfirmedServiceRequest( $serviceRequests ) );
 			}
