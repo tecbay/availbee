@@ -26,7 +26,9 @@ class SetStatusOnline implements ShouldQueue{
 	 */
 	public function handle( UserOnline $event ) {
 		$uid  = $event->uid;
+
 		$user = User::where( 'uid', $uid )->first();
+		dd($user);
 		if ( $user ) {
 			$user->online_status = true;
 			$user->save();
