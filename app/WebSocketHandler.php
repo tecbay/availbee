@@ -22,11 +22,12 @@ class WebSocketHandler implements MessageComponentInterface {
 	protected $channelManager;
 
 	public function __construct( ChannelManager $channelManager ) {
-		dd($channelManager);
+
 		$this->channelManager = $channelManager;
 	}
 
 	public function onOpen( ConnectionInterface $connection ) {
+		dd($connection);
 		$this
 			->verifyAppKey( $connection )
 			->generateSocketId( $connection )
