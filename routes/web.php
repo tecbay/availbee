@@ -227,7 +227,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Symfony\Component\Console\Output\NullOutput;
 
+WebSocketsRouter::webSocket( '/app/{appKey}', \App\WebSocketHandler::class );
 app()->singleton( WebsocketsLogger::class, function () {
 	return ( new WebsocketsLogger( new NullOutput() ) )->enable( false );
 } );
-WebSocketsRouter::webSocket( '/appp/{appKey}', \App\WebSocketHandler::class );
