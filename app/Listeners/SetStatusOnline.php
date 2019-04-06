@@ -6,8 +6,9 @@ use App\Events\UserOnline;
 use App\User;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Support\Facades\Log;
 
-class SetStatusOnline implements ShouldQueue{
+class SetStatusOnline implements ShouldQueue {
 	/**
 	 * Create the event listener.
 	 *
@@ -25,9 +26,12 @@ class SetStatusOnline implements ShouldQueue{
 	 * @return void
 	 */
 	public function handle( UserOnline $event ) {
-		$uid  = $event->uid;
+		$uid = $event->uid;
 
 		$user = User::where( 'uid', $uid )->first();
+
+		Log::debug( 'An informational message.' . $uid );
+		Log::info( 'User failed to login.', [ 'id' => $uid ] );
 		if ( $user ) {
 			$user->online_status = true;
 			$user->save();
