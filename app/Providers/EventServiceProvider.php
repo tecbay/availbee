@@ -16,6 +16,9 @@ class EventServiceProvider extends ServiceProvider {
 		Registered::class                    => [
 			SendEmailVerificationNotification::class,
 		],
+		'App\Events\UserOnline'              => [
+			'App\Listeners\SetStatusOnline',
+		],
 		'App\Events\ConfirmedServiceRequest' => [
 			'App\Listeners\ProcessServiceReques',
 		],
@@ -25,9 +28,7 @@ class EventServiceProvider extends ServiceProvider {
 		'App\Events\ServiceRequestAccepted'  => [
 			'App\Listeners\ClearBlackList',
 		],
-		'App\Events\UserOnline'              => [
-			'App\Listeners\SetStatusOnline',
-		],
+
 		'App\Events\UserOffline'             => [
 			'App\Listeners\SetStatusOffline',
 		],

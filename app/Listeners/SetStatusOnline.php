@@ -7,7 +7,7 @@ use App\User;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class SetStatusOnline {
+class SetStatusOnline implements ShouldQueue{
 	/**
 	 * Create the event listener.
 	 *
@@ -28,7 +28,6 @@ class SetStatusOnline {
 		$uid  = $event->uid;
 
 		$user = User::where( 'uid', $uid )->first();
-		dd($user);
 		if ( $user ) {
 			$user->online_status = true;
 			$user->save();
