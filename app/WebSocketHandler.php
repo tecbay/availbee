@@ -27,7 +27,6 @@ class WebSocketHandler implements MessageComponentInterface {
 	}
 
 	public function onOpen( ConnectionInterface $connection ) {
-		return response()->json($connection);
 
 		$this
 			->verifyAppKey( $connection )
@@ -84,7 +83,7 @@ class WebSocketHandler implements MessageComponentInterface {
 	protected function establishConnection( ConnectionInterface $connection ) {
 		$uid = QueryParameters::create( $connection->httpRequest )->get( 'uid' );
 		event( new UserOnline( $uid ) );
-		Log::info( 'This is from outtt' );
+		dd($uid);
 		$connection->send( json_encode( [
 			'event' => 'pusher:connection_established',
 			'data'  => json_encode( [
