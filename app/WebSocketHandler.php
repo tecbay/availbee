@@ -85,7 +85,7 @@ class WebSocketHandler implements MessageComponentInterface {
 		$connection->send( json_encode( [
 			'event' => 'pusher:connection_established',
 			'data'  => json_encode( [
-				'socket_id'        => $connection->socketId,
+				'socket_id'        => $connection->socketId."iddd",
 				'activity_timeout' => 30,
 			] ),
 		] ) );
