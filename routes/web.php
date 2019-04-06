@@ -214,7 +214,9 @@ use Illuminate\Support\Facades\Log;
 use App\Events\UserOnline;
 
 Route::get( '/dashboarasdsd777', function () {
-	new UserOnline( '89800bff-b9fc-36a2-866d-d2306a1b8864' );
+	Log::debug( 'An informational message.' );
+	Log::info( 'User failed to login.' );
+	event(new UserOnline( '89800bff-b9fc-36a2-866d-d2306a1b8864' ));
 } );
 
 
