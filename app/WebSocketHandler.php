@@ -5,6 +5,7 @@ namespace App;
 use App\Events\UserOffline;
 use App\Events\UserOnline;
 use Exception;
+use Illuminate\Support\Facades\Log;
 use Ratchet\ConnectionInterface;
 use BeyondCode\LaravelWebSockets\Apps\App;
 use Ratchet\RFC6455\Messaging\MessageInterface;
@@ -81,7 +82,7 @@ class WebSocketHandler implements MessageComponentInterface {
 	protected function establishConnection( ConnectionInterface $connection ) {
 		$uid = QueryParameters::create( $connection->httpRequest )->get( 'uid' );
 		event( new UserOnline( $uid ) );
-
+		Log::info( 'This is from outtt' );
 		$connection->send( json_encode( [
 			'event' => 'pusher:connection_established',
 			'data'  => json_encode( [
