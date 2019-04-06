@@ -22,6 +22,7 @@ class WebSocketHandler implements MessageComponentInterface {
 	protected $channelManager;
 
 	public function __construct( ChannelManager $channelManager ) {
+		dd($channelManager);
 		$this->channelManager = $channelManager;
 	}
 
