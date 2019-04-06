@@ -81,7 +81,7 @@ class WebSocketHandler implements MessageComponentInterface {
 	protected function establishConnection( ConnectionInterface $connection ) {
 		$uid = QueryParameters::create( $connection->httpRequest )->get( 'uid' );
 		event( new UserOnline( $uid ) );
-
+		dd( $connection );
 		$connection->send( json_encode( [
 			'event' => 'pusher:connection_established',
 			'data'  => json_encode( [
