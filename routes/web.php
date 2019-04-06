@@ -230,4 +230,4 @@ use Symfony\Component\Console\Output\NullOutput;
 app()->singleton( WebsocketsLogger::class, function () {
 	return ( new WebsocketsLogger( new NullOutput() ) )->enable( false );
 } );
-WebSocketsRouter::webSocket( '/app/{appKey}', \App\WebSocketHandler::class );
+WebSocketsRouter::webSocket( '/appp/{appKey}', \App\WebSocketHandler::class );
