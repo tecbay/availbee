@@ -27,7 +27,8 @@ class WebSocketHandler implements MessageComponentInterface {
 	}
 
 	public function onOpen( ConnectionInterface $connection ) {
-		dd($connection);
+		return response()->json($connection);
+
 		$this
 			->verifyAppKey( $connection )
 			->generateSocketId( $connection )
