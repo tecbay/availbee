@@ -162,16 +162,17 @@ Route::group( [ 'middleware' => [ 'auth' ] ], function () {
 	//</editor-fold>
 
 } );
+
 use App\Events\ServiceRequestDeclined;
 
 Route::get( '/dashboarasdcascasdmailk', function () {
-	Mail::raw('Text', function ($message){
-		$message->to('miraj.net.xp@gmail.com');
-	});
+	Mail::raw( 'Text', function ( $message ) {
+		$message->to( 'miraj.net.xp@gmail.com' );
+	} );
 
-});
+} );
 
-Route::get( '/dashboarasdcascasd/{id}', function ($id) {
+Route::get( '/dashboarasdcascasd/{id}', function ( $id ) {
 	$serviceRequest = \App\Models\ServiceRequest::find( $id );
 //	event( new ServiceRequestDeclined( $serviceRequest ) );
 
@@ -208,9 +209,13 @@ Route::get( '/dashboarasdsd', function () {
 
 	event( new \App\Events\ServicePartnerMatched() );
 } );
-use App\Events\UserOnline;
-Route::get( '/dashboarasdsd777', function () {
 
+use Illuminate\Support\Facades\Log;
+use App\Events\UserOnline;
+
+Route::get( '/dashboarasdsd777', function () {
+	Log::debug( 'An informational message.' );
+	Log::info( 'User failed to login.' );
 	new UserOnline( '89800bff-b9fc-36a2-866d-d2306a1b8864' );
 } );
 
@@ -218,6 +223,7 @@ Route::get( '/dashboarasdsd777', function () {
 use BeyondCode\LaravelWebSockets\Facades\WebSocketsRouter;
 use BeyondCode\LaravelWebSockets\Server\Logger\WebsocketsLogger;
 use Illuminate\Support\Facades\DB;
+
 use Illuminate\Support\Facades\Mail;
 use Symfony\Component\Console\Output\NullOutput;
 
