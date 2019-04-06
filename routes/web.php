@@ -172,52 +172,12 @@ Route::get( '/dashboarasdcascasdmailk', function () {
 
 } );
 
+
 Route::get( '/dashboarasdcascasd/{id}', function ( $id ) {
 	$serviceRequest = \App\Models\ServiceRequest::find( $id );
-//	event( new ServiceRequestDeclined( $serviceRequest ) );
 
-//	dd();
-	$alre = DB::table( 'alreadtsendrequrst' )
-	          ->where( 'service_request_uid', $serviceRequest->uid )
-	          ->get();
-
-	$user = App\User::permission( (string) $serviceRequest->serviceCategory->slang )
-	                ->where( 'online_status', true )
-	                ->where( 'state', $serviceRequest->state );
-
-	if ( count( $alre ) > 0 ) {
-//		$user->whereNotIn( 'id', $alre->pluck( 'user_id' ) );
-		$user = $user->first();
-	} else {
-		$user = $user->first();
-	}
-	if ( $user ) {
-		event( new \App\Events\ServicePartnerMatched( $user->id, $serviceRequest ) );
-		DB::table( 'alreadtsendrequrst' )->insert(
-			[ 'service_request_uid' => $serviceRequest->uid, 'user_id' => $user->id ]
-		);
-
-	} else {
-		echo 'nouser avail';
-	}
-
-	echo 'ascasc';
+	event( new \App\Events\ConfirmedServiceRequest( $serviceRequest ) );
 } );
 
 
-Route::get( '/dashboarasdsd', function () {
-
-	event( new \App\Events\ServicePartnerMatched() );
-} );
-use Illuminate\Support\Facades\DB;
-
-use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Log;
-use App\Events\UserOnline;
-
-Route::get( '/dashboarasdsd777', function () {
-	Log::debug( 'An informational message.' );
-	Log::info( 'User failed to login.' );
-	event(new UserOnline( '89800bff-b9fc-36a2-866d-d2306a1b8864' ));
-} );
 

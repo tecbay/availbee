@@ -22,9 +22,9 @@ class EventServiceProvider extends ServiceProvider {
 		'App\Events\ConfirmedServiceRequest' => [
 			'App\Listeners\ProcessServiceReques',
 		],
-//		'App\Events\ServiceRequestDeclined'  => [
-//			'App\Listeners\ProcessServiceReques',
-//		],
+		'App\Events\ServiceRequestDeclined'  => [
+			'App\Listeners\ProcessServiceReques',
+		],
 		'App\Events\ServiceRequestAccepted'  => [
 			'App\Listeners\ClearBlackList',
 		],
