@@ -209,25 +209,15 @@ Route::get( '/dashboarasdsd', function () {
 
 	event( new \App\Events\ServicePartnerMatched() );
 } );
+use Illuminate\Support\Facades\DB;
 
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Log;
 use App\Events\UserOnline;
 
 Route::get( '/dashboarasdsd777', function () {
 	Log::debug( 'An informational message.' );
 	Log::info( 'User failed to login.' );
-	event( new UserOnline( '89800bff-b9fc-36a2-866d-d2306a1b8864' ) );
+	event(new UserOnline( '89800bff-b9fc-36a2-866d-d2306a1b8864' ));
 } );
 
-
-use BeyondCode\LaravelWebSockets\Facades\WebSocketsRouter;
-use BeyondCode\LaravelWebSockets\Server\Logger\WebsocketsLogger;
-use Illuminate\Support\Facades\DB;
-
-use Illuminate\Support\Facades\Mail;
-use Symfony\Component\Console\Output\NullOutput;
-
-app()->singleton( WebsocketsLogger::class, function () {
-	return ( new WebsocketsLogger( new NullOutput() ) )->enable( false );
-} );
-WebSocketsRouter::webSocket( '/websocket', \App\WebSocketHandler::class );

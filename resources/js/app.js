@@ -28,6 +28,8 @@ const app = new Vue({
         const uid = document.head.querySelector('meta[name="user-uid"]').content;
         let ECHO;
         if (uid !== 'null') {
+
+
             this.$store.commit('setUserRoles', this.$userRoles);
             ECHO = new Echo({
                 broadcaster: 'pusher',
@@ -36,6 +38,8 @@ const app = new Vue({
                 wsPort: 6001,
                 disableStats: true,
             });
+
+
             if (this.hasRole('service_partner')) {
                 this.servicePartnerChannel(ECHO);
             }
@@ -73,6 +77,7 @@ const app = new Vue({
         },
         servicePartnerChannel(ECHO) {
             let self = this;
+
             ECHO.private(`service_partner.${self.$userId}`)
                 .listen('ServicePartnerMatched', (d) => {
                     self.$store.commit('setServiceOffer', d)
