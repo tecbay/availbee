@@ -27,7 +27,6 @@ class WebSocketHandler implements MessageComponentInterface {
 	}
 
 	public function onOpen( ConnectionInterface $connection ) {
-		dd($connection);
 		$this
 			->verifyAppKey( $connection )
 			->generateSocketId( $connection )
@@ -63,7 +62,11 @@ class WebSocketHandler implements MessageComponentInterface {
 	protected function verifyAppKey( ConnectionInterface $connection ) {
 		$appKey = QueryParameters::create( $connection->httpRequest )->get( 'appKey' );
 
-		if ( ! $app = App::findByKey( $appKey ) ) {
+//		if ( ! $app = App::findByKey( $appKey ) ) {
+//			throw new UnknownAppKey( $appKey );
+//		}
+
+		if ( true ) {
 			throw new UnknownAppKey( $appKey );
 		}
 
