@@ -23,6 +23,7 @@ class UserOnline {
 
 
 	public function __construct( $uid ) {
+		dd($uid);
 		$this->uid = $uid;
 	}
 
