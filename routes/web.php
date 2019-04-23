@@ -156,6 +156,7 @@ Route::group( [ 'middleware' => [ 'auth' ] ], function () {
 	], function () {
 		//All Customer Routes +++++
 		Route::get( '/dashboard', 'DashboardController@home' )->name( 'home' );
+		Route::post( '/charge', 'PaymentController@charge' )->name( 'charge' );
 		Route::resource( 'service-request', 'ServiceRequestController' );
 
 	} );
@@ -174,9 +175,14 @@ Route::get( '/dashboarasdcascasdmailk', function () {
 
 
 Route::get( '/dashboarasdcascasd/{id}', function ( $id ) {
-	$serviceRequest = \App\Models\ServiceRequest::find( $id );
+	$user = \App\User::find( $id );
+//	$cards = $user->cards();
 
-	event( new \App\Events\ConfirmedServiceRequest( $serviceRequest ) );
+
+	$response = $user->charge( 100 );
+	dd( $response );
+
+
 } );
 
 

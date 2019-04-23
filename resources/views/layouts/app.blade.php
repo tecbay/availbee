@@ -57,6 +57,8 @@
     <link rel="stylesheet" href="{{asset('dashboard/css/azia.css')}}">
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdSks7O6JWUkj2C0lIAM_vQt6mYj51PSo&libraries=places"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+
 
 
 </head>
@@ -79,6 +81,20 @@
 
 
 <script src="{{asset('js/app.js')}}"></script>
+{{--<form action="{{route('customer.charge')}}" method="POST">--}}
+{{--@csrf--}}
+{{--<script--}}
+{{--src="https://checkout.stripe.com/checkout.js" class="stripe-button"--}}
+{{--data-key="pk_test_5pk6M97gItjqB5IGsaqW6ef2"--}}
+{{--data-amount="1999"--}}
+{{--data-name="Stripe Demo"--}}
+{{--data-description="Online course about integrating Stripe"--}}
+{{--data-image="https://stripe.com/img/documentation/checkout/marketplace.png"--}}
+{{--data-locale="auto"--}}
+{{--data-currency="usd">--}}
+{{--</script>--}}
+{{--</form>--}}
+
 <script src="{{asset('dashboard/lib/jquery/jquery.min.js')}}"></script>
 <script src="{{asset('dashboard/lib/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('dashboard/lib/ionicons/ionicons.js')}}"></script>

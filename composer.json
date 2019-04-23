@@ -12,6 +12,7 @@
         "beyondcode/laravel-websockets": "^1.1",
         "fideloper/proxy": "^4.0",
         "kreait/firebase-php": "4.18",
+        "laravel/cashier": "^9.2",
         "laravel/framework": "5.7.*",
         "laravel/tinker": "^1.0",
         "pusher/pusher-php-server": "~3.0",

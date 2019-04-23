@@ -13,6 +13,7 @@ Vue.prototype.$userRoles = document.querySelector("meta[name='user-roles']").get
 
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('card-details', require('./components/card-details').default);
 Vue.component('resarvation-form', require('./components/ReservationForm.vue').default);
 Vue.component('customer-dashboard', require('./components/Customer/index').default);
 Vue.component('google-place', require('./components/google-place').default);
